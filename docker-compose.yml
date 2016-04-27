@@ -1,0 +1,40 @@
+redis:
+  image: redis:2.8.23
+  container_name: madeye_redis
+
+mongo:
+  image: mongo:2.6.11
+  container_name: madeye_mongo
+
+nginx:
+  image: nginx:1.8.1
+  links:
+    - apogee
+    - azkaban
+    - bolide
+  ports:
+    - 80:80
+  volumes:
+    - ./nginx.conf:/etc/nginx/nginx.conf:ro
+  container_name: madeye_nginx
+
+bolide:
+  image: madeyedev/bolide:0.1
+  links:
+    - redis
+  container_name: madeye_bolide
+
+azkaban:
+  image: madeyedev/azkaban:0.1
+  links:
+    - redis
+    - mongo
+  container_name: madeye_azkaban
+
+apogee:
+  image: madeyedev/apogee:0.1
+  links:
+    - azkaban
+    - bolide
+    - mongo
+  container_name: madeye_apogee
