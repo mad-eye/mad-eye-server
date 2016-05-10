@@ -32,7 +32,11 @@ azkaban:
   container_name: madeye_azkaban
 
 apogee:
-  image: madeyedev/apogee:0.1
+#  build: ../apogee
+  image: madeyedev/apogee:0.3
+#  volumes:
+#    - /root/apogee:/app
+#  command: bash /app/runDev.sh
   links:
     - azkaban
     - bolide
