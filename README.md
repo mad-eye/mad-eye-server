@@ -10,7 +10,7 @@
 *Connect to your MadEye server with the CLI*
 
 1. Install the CLI. `curl https://madeye.io/install | sh`
-2. Point to your server by setting  `export MADEYE_BASE_URL=XXX.XX.XX.XX`
+2. Point to your server by setting  `export MADEYE_BASE_URL=http://XXX.XX.XX.XX`
 3. Run `madeye` in your project directory
 
 More information is available at https://madeye.io
