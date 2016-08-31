@@ -5,6 +5,7 @@ redis:
 mongo:
   image: mongo:2.6.11
   container_name: madeye_mongo
+  command: mongod --smallfiles
 
 nginx:
   image: nginx:1.8.1
